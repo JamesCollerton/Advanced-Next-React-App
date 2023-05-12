@@ -1,12 +1,22 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// Here we declare an interface for the props
+// we intend to pass to the functional component
+interface Title {
+  title: string,
+  randomNumber: number
+}
 
-export default function Home() {
+// This is the functional component acting as our
+// web page. Notice how it expects props, which are
+// in turn fed to it by the 'getStaticProps' 
+// function
+const Home = (title: Title) => {
   return (
     <>
+      {/* The head component is used for metadata
+          surrounding the page */}
       <Head>
         <title>Static Site Generation</title>
         <meta name="description" content="Static site generation example" />
@@ -14,16 +24,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>This page has been statically generated at build time!</h1>
+        {/* Here we unpack our props and display
+            them on the page */}
+        <h1>{title.title}</h1>
+        <p>{title.randomNumber}</p>
       </main>
     </>
   )
 }
 
-export async function getServerSideProps() {
-  
-  console.log("Server side rendering function")
+// The getStaticProps function is ran once at build
+// time
+export async function getStaticProps() {
 
-  return { props: { title: "Server side rendering is great!" } };
-  
+  // We will see this printed only once
+  console.log("Static site generation called!")
+
+  // Here we pass on a static title and a random
+  // number. We should get the same number on every
+  // page load
+  return { 
+    props: { 
+      title: "Static site generation is great!",
+      randomNumber: Math.random() 
+    } 
+  };
+
 }
+
+export default Home
+
