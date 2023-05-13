@@ -19,7 +19,9 @@ const Home = () => {
             when we click the link the necessary
             files will be in the browser and ready 
             to go. */}
-        <Link href="/pre-13/client-side-routing/page-two">Click for page two!</Link>
+        <Link href="/pre-13/client-side-routing/page-two">
+          Click for page two!
+        </Link>
       </main>
     </>
   )
