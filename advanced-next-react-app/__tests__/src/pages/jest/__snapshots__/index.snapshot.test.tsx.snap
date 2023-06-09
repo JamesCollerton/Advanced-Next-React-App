@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component snapshot test 1`] = `
+<div>
+  <main
+    class="main"
+  >
+    <h1>
+      Here's our testing page!
+    </h1>
+  </main>
+</div>
+`;
