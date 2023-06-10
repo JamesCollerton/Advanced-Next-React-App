@@ -13,7 +13,7 @@ const Home = () => {
                 <title>Jest Testing Page!</title>
             </Head>
             <main className={styles.main}>
-                <button onClick={handleClick}>
+                <button id="button-test-id" onClick={handleClick}>
                     Press Me!
                 </button>
             </main>
