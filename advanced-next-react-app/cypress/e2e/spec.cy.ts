@@ -10,7 +10,7 @@ describe('Cypress Page', () => {
     cy.get('[id="button-test-id"]').click().then(() => {
 
       // Assert
-      expect(stub.getCall(0)).to.be.calledWith('Fail this test!')      
+      expect(stub.getCall(0)).to.be.calledWith('Button has been clicked!')      
     })  
   })
 })
